@@ -28,7 +28,7 @@ const navItems = [
         />
       </a>
       
-      <div class="hidden md:flex space-x-6">
+      <div class="hidden lg:flex space-x-8">
         {navItems.map(item => (
           <a
             href={item.href}
@@ -40,7 +40,7 @@ const navItems = [
       </div>
 
       <button
-        class="md:hidden text-gray-700"
+        class="lg:hidden text-gray-700"
         aria-label="Toggle menu"
         id="menuButton"
       >
@@ -64,7 +64,7 @@ const navItems = [
 
   <!-- Mobile menu -->
   <div
-    class="hidden md:hidden absolute w-full bg-white shadow-lg"
+    class="hidden lg:hidden absolute w-full bg-white shadow-lg"
     id="mobileMenu"
   >
     <nav class="container mx-auto px-4 py-4">
