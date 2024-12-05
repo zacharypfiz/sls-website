@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import kansasLogo from '../../public/SLS-assets/logos/kansas.png';
+import ndsuLogo from '../../public/SLS-assets/logos/ndsu.jpg';
+
+type University = {
+  name: string;
+  width: number;
+} & (
+  | { type: 'svg'; logo: string }
+  | { type: 'image'; logo: ImageMetadata }
+);
+
+const universities: University[] = [
+  {
+    name: 'University of Kansas',
+    logo: kansasLogo,
+    width: 160,
+    type: 'image'
+  },
+  {
+    name: 'The Ohio State University',
+    logo: '/sls-website/SLS-assets/logos/ohio-state.svg',
+    width: 140,
+    type: 'svg'
+  },
+  {
+    name: 'North Dakota State University',
+    logo: ndsuLogo,
+    width: 160,
+    type: 'image'
+  }
+] as const;
+---
+
+<section class="py-12 bg-white border-y border-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-center text-gray-500 text-lg font-light mb-8">Trusted by Leading Universities</h2>
+    <div class="flex flex-wrap justify-center items-center gap-16 md:gap-24 max-w-5xl mx-auto">
+      {universities.map(uni => (
+        <div class="w-36 md:w-40 flex items-center justify-center">
+          {uni.type === 'svg' ? (
+            <img
+              src={uni.logo.toString()}
+              alt={uni.name}
+              width={uni.width}
+              height={Math.floor(uni.width * 0.6)}
+            />
+          ) : (
+            <Image
+              src={uni.logo as ImageMetadata}
+              alt={uni.name}
+              width={uni.width}
+              height={Math.floor(uni.width * 0.6)}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

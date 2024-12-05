@@ -25,9 +25,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Large media files
-public/SLS-assets/ecodenser.mp4
-
 # VSCode settings
 .vscode/
 

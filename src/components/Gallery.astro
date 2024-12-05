@@ -20,17 +20,17 @@ const images = [
 <section class="py-20 bg-white" id="gallery">
   <div class="container mx-auto px-4">
     <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Gallery</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
       {images.map((image) => (
         <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
           <Image
             src={image.src}
             alt={image.alt}
-            width={400}
-            height={400}
+            width={600}
+            height={600}
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             format="webp"
-            quality={80}
+            quality={90}
           />
         </div>
       ))}
