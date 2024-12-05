@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import logo from '/public/SLS-assets/sls.png';
 
 const navItems = [
   { href: '#home', label: 'Home' },
@@ -16,7 +17,7 @@ const navItems = [
     <nav class="flex items-center justify-between h-20">
       <a href="#home" class="flex items-center">
         <Image 
-          src="/SLS-assets/sls.png"
+          src={logo}
           alt="Smart Labhood Solutions"
           width={250}
           height={50}
