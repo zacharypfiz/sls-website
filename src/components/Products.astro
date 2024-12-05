@@ -1,0 +1,33 @@
+---
+import ProductCard from './ui/ProductCard.astro';
+---
+
+<section class="py-20 bg-gray-50" id="products">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">
+      Introducing the EcoDenser
+    </h2>
+    <p class="text-gray-600 text-lg text-center max-w-4xl mx-auto mb-12">
+      A uniquely designed heat exchanger system that is installed in-line with a lab hood condenser used to cool chemical reactions for an experiment. Chilled water (from the building or portable units) flows through the EcoDenser, cooling the fluid (16 oz.) within the closed system before it traverses through condenser. This approach can save a lab hundreds of thousands of gallons of water per year, per hood.
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <ProductCard
+        title="The Problem"
+        description="The traditional method of cooling experiments in a fume hood utilizes a continuous flow of water (from tap-to-drain) for cooling, which is estimated to consume several hundred thousand gallons of water per year."
+      />
+      <ProductCard
+        title="Hazardous"
+        description="This process poses both environmental and operational expense concerns. It wastes water and is susceptible to the risk of flooding and environmental contamination as a result of component failure."
+      />
+      <ProductCard
+        title="Patent: US2013-0331018"
+        description="Our Ecodenser can address both the above mentioned issues and has been widely accepted as safe alternative labhood in various laboratories including Universities."
+      />
+      <ProductCard
+        title="Our Solution"
+        description="The EcoDenser, with its closed-loop heat exchanger system delivers environmental and economic benefits as well as simplifies fume hood plumbing (no drains required) and workspace layout. Employing this system may also help a building meet sustainability standards and ensure compliance with water conservation regulations."
+      />
+    </div>
+  </div>
+</section>

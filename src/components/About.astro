@@ -1,0 +1,35 @@
+---
+import Button from './ui/Button.astro';
+---
+
+<section class="py-20 bg-white" id="about">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">
+          Welcome to Smart Labhood Solutions.
+        </h2>
+        <div class="space-y-4 text-gray-600">
+          <p>
+            By definition, Technology is the application of scientific knowledge for practical purposes. Smart Labhood Solutions develops products that leverage technology while preserving the environment it is intended to enhance. This co-existence between technology and the environment cultivates sustainable advancement through discovery and eco-consciousness.
+          </p>
+          <p>
+            Thank you for visiting our site. We urge you to review our entire web site to learn more about us and the products that we provide. Our featured product is the EcoDenser. Learn how this dynamic product can make a significant difference in your laboratory.
+          </p>
+        </div>
+        <div class="mt-8">
+          <Button href="/documentation">
+            Read More
+          </Button>
+        </div>
+      </div>
+      <div class="order-1 md:order-2">
+        <img 
+          src="/SLS-assets/mk-9.jpg" 
+          alt="Smart Labhood Solutions Facility" 
+          class="rounded-lg shadow-xl w-full"
+        />
+      </div>
+    </div>
+  </div>
+</section>

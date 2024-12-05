@@ -1,0 +1,32 @@
+---
+const executive = {
+  name: "Samuel Prabhakar",
+  title: "CEO & Founder",
+  bio: "Samuel is Founder, President and CEO of three companies: Smart Labhood Solutions Inc. (SLS), Elite Custom Solutions LLC (ECS), and Elite Knowledge Solutions LLC (EKS). ECS provides technology services (Design, Development, Manufacturing, Service and Support to clients. EKS is dedicated to supporting Entrepreneurs take their ideas from concept to market. Prior to founding these companies, Samuel worked for IBM for 29 years, managing and leading worldwide teams to deliver innovative, custom solutions. Samuel's work in creating and leading these solutions paved the way for the formation of a new IBM division in 2002 called, Engineering and Technology Services in which he was the Director of Systems Solutions. Samuel enjoys sports, music and spending time with his family."
+};
+---
+
+<section id="team" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Executive Team</h2>
+    
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="md:flex">
+          <div class="md:flex-shrink-0">
+            <img 
+              src="/SLS-assets/samuel.jpeg" 
+              alt={executive.name}
+              class="h-48 w-full object-cover md:w-48"
+            />
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-gray-900">{executive.name}</h3>
+            <p class="text-primary font-semibold mb-4">{executive.title}</p>
+            <p class="text-gray-600 leading-relaxed">{executive.bio}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

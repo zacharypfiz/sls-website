@@ -1,0 +1,27 @@
+---
+const images = [
+  { src: '/SLS-assets/1.png', alt: 'EcoDenser Installation' },
+  { src: '/SLS-assets/2.png', alt: 'Laboratory Setup' },
+  { src: '/SLS-assets/3.png', alt: 'EcoDenser Unit' },
+  { src: '/SLS-assets/4.jpeg', alt: 'Laboratory Equipment' },
+  { src: '/SLS-assets/5.jpeg', alt: 'EcoDenser System' },
+  { src: '/SLS-assets/6.jpeg', alt: 'Product Detail' },
+];
+---
+
+<section class="py-20 bg-white" id="gallery">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Gallery</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {images.map((image) => (
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

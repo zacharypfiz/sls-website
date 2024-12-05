@@ -1,0 +1,22 @@
+---
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  class?: string;
+  center?: boolean;
+}
+
+const { 
+  level = 2, 
+  class: className,
+  center = false
+} = Astro.props;
+
+const Tag = `h${level}` as keyof HTMLElementTagNameMap;
+const baseClasses = "font-bold text-gray-900";
+const sizeClasses = level === 1 ? "text-5xl md:text-6xl" : "text-4xl";
+const alignClasses = center ? "text-center" : "";
+---
+
+<Tag class:list={[baseClasses, sizeClasses, alignClasses, className]}>
+  <slot />
+</Tag>

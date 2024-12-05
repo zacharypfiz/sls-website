@@ -1,0 +1,141 @@
+---
+import Map from './Map.astro';
+---
+
+<section id="contact" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Get in touch with us!</h2>
+    
+    <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <div>
+        <form id="contactForm" class="space-y-6">
+          <div>
+            <label for="from_name" class="block text-gray-700 font-medium mb-2">Name</label>
+            <input
+              type="text"
+              id="from_name"
+              name="from_name"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="reply_to" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input
+              type="email"
+              id="reply_to"
+              name="reply_to"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="6"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+            ></textarea>
+          </div>
+          
+          <button
+            type="submit"
+            class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+          >
+            Send Message
+          </button>
+        </form>
+
+        <div id="formStatus" class="mt-4 text-center hidden">
+          <p class="text-green-600 hidden" id="successMessage">Message sent successfully!</p>
+          <p class="text-red-600 hidden" id="errorMessage">Error sending message. Please try again.</p>
+        </div>
+      </div>
+      
+      <div>
+        <Map />
+        
+        <div class="mt-8 space-y-4">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Address</h3>
+            <p class="text-gray-600">2450 Marion Rd SE, Rochester, MN 55904</p>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Phone</h3>
+            <a href="tel:5072586223" class="text-primary hover:text-secondary">(507) 258-6223</a>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900">Email</h3>
+            <a href="mailto:bookkeeping@elitesolutions.net" class="text-primary hover:text-secondary">
+              bookkeeping@elitesolutions.net
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  // Initialize EmailJS with your public key
+  emailjs.init(import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY);
+
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const formStatus = document.getElementById('formStatus');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Disable the submit button to prevent double submission
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
+      try {
+        // Get form values
+        const formData = new FormData(form);
+        const templateParams = {
+          from_name: formData.get('from_name'),
+          from_email: formData.get('reply_to'), // Using reply_to as from_email
+          reply_to: formData.get('reply_to'),
+          message: formData.get('message'),
+          to_email: 'bookkeeping@elitesolutions.net'
+        };
+
+        // Send email using templateParams
+        await emailjs.send(
+          import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+          import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+          templateParams
+        );
+        
+        form.reset();
+        formStatus?.classList.remove('hidden');
+        successMessage?.classList.remove('hidden');
+        errorMessage?.classList.add('hidden');
+      } catch (error) {
+        formStatus?.classList.remove('hidden');
+        errorMessage?.classList.remove('hidden');
+        successMessage?.classList.add('hidden');
+        console.error('Error:', error);
+      } finally {
+        // Re-enable the submit button
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      }
+    });
+  }
+</script>

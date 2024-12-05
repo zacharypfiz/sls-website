@@ -1,0 +1,99 @@
+---
+const navItems = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About Us' },
+  { href: '#products', label: 'Products' },
+  { href: '#gallery', label: 'Product Images' },
+  { href: '#team', label: 'Executive Team' },
+  { href: '#documentation', label: 'Documentation' },
+  { href: '#testimonials', label: 'Testimonials' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="fixed w-full bg-white shadow-md z-50">
+  <div class="container mx-auto px-4">
+    <nav class="flex items-center justify-between h-20">
+      <a href="#home" class="flex items-center">
+        <img src="/SLS-assets/sls.png" alt="Smart Labhood Solutions" class="h-12" />
+      </a>
+      
+      <div class="hidden md:flex space-x-6">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="text-gray-700 hover:text-primary transition-colors duration-200"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <button
+        class="md:hidden text-gray-700"
+        aria-label="Toggle menu"
+        id="menuButton"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    class="hidden md:hidden absolute w-full bg-white shadow-lg"
+    id="mobileMenu"
+  >
+    <nav class="container mx-auto px-4 py-4">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="block py-2 text-gray-700 hover:text-primary transition-colors duration-200"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href) {
+        document.querySelector(href)?.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>

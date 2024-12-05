@@ -1,0 +1,32 @@
+---
+const testimonials = [
+  {
+    quote: "A must-have device within lab hoods performing chemical experiments. I will never spec out a hood drain again.",
+    author: "Major Lab Facility Planning Architect"
+  },
+  {
+    quote: "I believe in this solution. The benefits of this device will not only help avoid major water damage in a lab, but the cost savings in water and sewer should provide more than adequate return on investment.",
+    author: "Major University Laboratory Design and Construction Executive"
+  },
+  {
+    quote: "A necessary solution to address EPA, water waste, and flood damage concerns within a facility.",
+    author: "Major Lab Hood Manufacturer"
+  }
+];
+---
+
+<section class="py-20 bg-gray-50" id="testimonials">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">
+      What People Are Saying
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <blockquote class="text-gray-600 italic mb-4">"{testimonial.quote}"</blockquote>
+          <p class="text-gray-900 font-semibold">- {testimonial.author}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
