@@ -4,5 +4,6 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   integrations: [tailwind(), react()],
-  site: 'https://www.smartlabhood.com',
+  site: 'https://zacharypfiz.github.io',
+  base: '/sls-website',
 });
