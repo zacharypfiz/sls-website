@@ -1,5 +1,6 @@
 ---
 import Button from './ui/Button.astro';
+import { Image } from 'astro:assets';
 ---
 
 <section class="py-20 bg-white" id="about">
@@ -18,16 +19,20 @@ import Button from './ui/Button.astro';
           </p>
         </div>
         <div class="mt-8">
-          <Button href="/documentation">
+          <Button href="#documentation">
             Read More
           </Button>
         </div>
       </div>
       <div class="order-1 md:order-2">
-        <img 
-          src="/SLS-assets/mk-9.jpg" 
-          alt="Smart Labhood Solutions Facility" 
+        <Image 
+          src="/SLS-assets/mk-9.jpg"
+          alt="Smart Labhood Solutions Facility"
+          width={800}
+          height={600}
           class="rounded-lg shadow-xl w-full"
+          format="webp"
+          quality={80}
         />
       </div>
     </div>

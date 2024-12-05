@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 const executive = {
   name: "Samuel Prabhakar",
   title: "CEO & Founder",
@@ -14,10 +15,14 @@ const executive = {
       <div class="bg-white rounded-lg shadow-xl overflow-hidden">
         <div class="md:flex">
           <div class="md:flex-shrink-0">
-            <img 
+            <Image 
               src="/SLS-assets/samuel.jpeg" 
               alt={executive.name}
+              width={400}
+              height={400}
               class="h-48 w-full object-cover md:w-48"
+              format="webp"
+              quality={80}
             />
           </div>
           <div class="p-8">

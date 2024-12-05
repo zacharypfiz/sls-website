@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const images = [
   { src: '/SLS-assets/1.png', alt: 'EcoDenser Installation' },
   { src: '/SLS-assets/2.png', alt: 'Laboratory Setup' },
@@ -15,10 +17,14 @@ const images = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {images.map((image) => (
         <div class="aspect-square overflow-hidden rounded-lg shadow-lg">
-          <img
+          <Image
             src={image.src}
             alt={image.alt}
+            width={400}
+            height={400}
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            format="webp"
+            quality={80}
           />
         </div>
       ))}

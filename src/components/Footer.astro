@@ -1,25 +1,35 @@
 ---
+import { Image } from 'astro:assets';
+
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-900 text-white py-12">
+<footer class="bg-gray-50 text-gray-900 py-12">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <img src="/SLS-assets/sls.png" alt="Smart Labhood Solutions" class="h-12 mb-4" />
-        <p class="text-gray-400">Developing technology to preserve ecology.</p>
+        <Image 
+          src="/SLS-assets/sls.png"
+          alt="Smart Labhood Solutions"
+          width={250}
+          height={50}
+          class="h-12 mb-4"
+          format="webp"
+          quality={80}
+        />
+        <p class="text-gray-600">Developing technology to preserve ecology.</p>
       </div>
       
       <div>
         <h3 class="text-lg font-semibold mb-4">Contact Information</h3>
-        <address class="text-gray-400 not-italic">
+        <address class="text-gray-600 not-italic">
           <p>2450 Marion Rd SE</p>
           <p>Rochester, MN 55904</p>
           <p class="mt-2">
-            <a href="tel:5072586223" class="hover:text-white transition-colors">(507) 258-6223</a>
+            <a href="tel:5072586223" class="hover:text-primary transition-colors">(507) 258-6223</a>
           </p>
           <p class="mt-2">
-            <a href="mailto:bookkeeping@elitesolutions.net" class="hover:text-white transition-colors">
+            <a href="mailto:bookkeeping@elitesolutions.net" class="hover:text-primary transition-colors">
               bookkeeping@elitesolutions.net
             </a>
           </p>
@@ -29,17 +39,17 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
         <nav class="grid grid-cols-2 gap-2">
-          <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
-          <a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a>
-          <a href="#products" class="text-gray-400 hover:text-white transition-colors">Products</a>
-          <a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a>
-          <a href="#team" class="text-gray-400 hover:text-white transition-colors">Executive Team</a>
-          <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+          <a href="#home" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+          <a href="#about" class="text-gray-600 hover:text-primary transition-colors">About Us</a>
+          <a href="#products" class="text-gray-600 hover:text-primary transition-colors">Products</a>
+          <a href="#gallery" class="text-gray-600 hover:text-primary transition-colors">Gallery</a>
+          <a href="#team" class="text-gray-600 hover:text-primary transition-colors">Executive Team</a>
+          <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
         </nav>
       </div>
     </div>
 
-    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+    <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
       <p>&copy; {currentYear} Smart Labhood Solutions. All rights reserved.</p>
     </div>
   </div>
