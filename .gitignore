@@ -25,4 +25,18 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-public/SLS-assets
+# Large media files
+public/SLS-assets/ecodenser.mp4
+
+# VSCode settings
+.vscode/
+
+# Coverage directory used by testing tools
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local development files
+*.local

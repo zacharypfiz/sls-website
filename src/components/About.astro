@@ -1,6 +1,7 @@
 ---
 import Button from './ui/Button.astro';
 import { Image } from 'astro:assets';
+import facilityImage from '../../public/SLS-assets/mk-9.jpg';
 ---
 
 <section class="py-20 bg-white" id="about">
@@ -26,7 +27,7 @@ import { Image } from 'astro:assets';
       </div>
       <div class="order-1 md:order-2">
         <Image 
-          src="/SLS-assets/mk-9.jpg"
+          src={facilityImage}
           alt="Smart Labhood Solutions Facility"
           width={800}
           height={600}

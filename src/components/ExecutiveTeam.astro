@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import profileImage from '../../public/SLS-assets/samuel.jpeg';
 
 const executive = {
   name: "Samuel Prabhakar",
@@ -17,7 +18,7 @@ const executive = {
         <div class="md:flex">
           <div class="md:flex-shrink-0">
             <Image 
-              src="/SLS-assets/samuel.jpeg" 
+              src={profileImage}
               alt={executive.name}
               width={400}
               height={400}

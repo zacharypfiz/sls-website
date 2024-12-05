@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import logo from '../../public/SLS-assets/sls.png';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -9,7 +10,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <Image 
-          src="/SLS-assets/sls.png"
+          src={logo}
           alt="Smart Labhood Solutions"
           width={250}
           height={50}
