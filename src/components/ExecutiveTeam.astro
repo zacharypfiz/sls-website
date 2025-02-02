@@ -1,38 +1,66 @@
 ---
 import { Image } from 'astro:assets';
-import profileImage from '../../public/docs/samuel.jpeg';
+import samuelImage from '../../public/docs/samuel.jpeg';
+import danielImage from '../../public/docs/daniel.jpg';
+import zacharyImage from '../../public/docs/zachary.png';
 
-const executive = {
-  name: "Samuel Prabhakar",
-  title: "CEO & Founder",
-  bio: "Samuel is Founder, President and CEO of three companies: Smart Labhood Solutions Inc. (SLS), Elite Custom Solutions LLC (ECS), and Elite Knowledge Solutions LLC (EKS). ECS provides technology services (Design, Development, Manufacturing, Service and Support to clients. EKS is dedicated to supporting Entrepreneurs take their ideas from concept to market. Prior to founding these companies, Samuel worked for IBM for 29 years, managing and leading worldwide teams to deliver innovative, custom solutions. Samuel's work in creating and leading these solutions paved the way for the formation of a new IBM division in 2002 called, Engineering and Technology Services in which he was the Director of Systems Solutions. Samuel enjoys sports, music and spending time with his family."
-};
+const executives = [
+  {
+    name: "Samuel Prabhakar",
+    title: "CEO & Founder",
+    image: samuelImage,
+    objectPosition: "center 20%",
+    bio: "Samuel is the Founder, President, and CEO of three companies: Smart Labhood Solutions Inc. (SLS), Elite Custom Solutions LLC (ECS), and Elite Knowledge Solutions LLC (EKS). ECS provides technology services, while EKS helps entrepreneurs take ideas from concept to market. Before founding these companies, Samuel spent 29 years at IBM, leading global teams and driving innovation. His leadership helped establish IBM’s Engineering and Technology Services division in 2002, where he served as Director of Systems Solutions. He enjoys sports, music, and time with his family."
+  },
+  {
+    name: "Daniel Borup, PhD",
+    title: "CTO",
+    image: danielImage,
+    objectPosition: "center 20%",
+    bio: "Daniel specializes in mechanical engineering and medical technology. He is the founder of Borup Solutions, LLC, an engineering consulting firm in Rochester, MN. Previously, he spent four years in medical imaging as a Senior R&D Engineer at Philips Healthcare and a Research Fellow at Mayo Clinic’s Department of Radiology. He earned his M.S. and Ph.D. from Stanford University, where he applied medical MRI to fluid mechanics across various engineering fields. A native of Champaign, IL, he graduated with Highest Honors in Engineering Mechanics from the University of Illinois Urbana-Champaign."
+  },
+  {
+    name: "Zachary Pfizenmaier",
+    title: "Treasurer",
+    image: zacharyImage,
+    objectPosition: "top",
+    bio: "Zachary oversees financial strategy and operations at Smart Labhood Solutions, ensuring strong fiscal management and sustainable growth. With a background in software development and AI, he specializes in process optimization and building AI-driven products, including the mobile nutrition tracking app Cranberry. Passionate about energy efficiency and solving the chronic disease crisis, he applies technology to drive impactful, scalable solutions."
+  }
+];
 ---
 
-<section id="team" class="py-20 bg-white">
+<section id="team" class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Our Executive Team</h2>
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Our Team</h2>
+    <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+      Meet the team driving innovation and excellence at Smart Labhood Solutions.
+    </p>
     
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-white rounded-lg shadow-xl overflow-hidden">
-        <div class="md:flex">
-          <div class="md:flex-shrink-0">
-            <Image 
-              src={profileImage}
-              alt={executive.name}
-              width={400}
-              height={400}
-              class="h-48 w-full object-cover md:w-48"
-              format="webp"
-              quality={80}
-            />
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {executives.map((executive) => (
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:shadow-2xl">
+            <div class="aspect-[6/6] overflow-hidden">
+              <Image 
+                src={executive.image}
+                alt={executive.name}
+                width={600}
+                height={600}
+                class="w-full h-full object-cover hover:scale-105 transition duration-300"
+                style={`object-position: ${executive.objectPosition}`}
+                format="webp"
+                quality={90}
+              />
+            </div>
+            <div class="p-8">
+              <div class="text-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{executive.name}</h3>
+                <p class="text-primary font-semibold text-lg">{executive.title}</p>
+              </div>
+              <p class="text-gray-600 leading-relaxed tracking-wide text-base">{executive.bio}</p>
+            </div>
           </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold text-gray-900">{executive.name}</h3>
-            <p class="text-primary font-semibold mb-4">{executive.title}</p>
-            <p class="text-gray-600 leading-relaxed">{executive.bio}</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </div>
