@@ -10,14 +10,14 @@ const executives = [
     title: "CEO & Founder",
     image: samuelImage,
     objectPosition: "center 20%",
-    bio: "Samuel is the Founder, President, and CEO of three companies: Smart Labhood Solutions Inc. (SLS), Elite Custom Solutions LLC (ECS), and Elite Knowledge Solutions LLC (EKS). ECS provides technology services, while EKS helps entrepreneurs take ideas from concept to market. Before founding these companies, Samuel spent 29 years at IBM, leading global teams and driving innovation. His leadership helped establish IBM’s Engineering and Technology Services division in 2002, where he served as Director of Systems Solutions. He enjoys sports, music, and time with his family."
+    bio: "Samuel is the Founder, President, and CEO of three companies: Smart Labhood Solutions Inc. (SLS), Elite Custom Solutions LLC (ECS), and Elite Knowledge Solutions LLC (EKS). ECS provides technology services, while EKS helps entrepreneurs take ideas from concept to market. Before founding these companies, Samuel spent 29 years at IBM, leading global teams and driving innovation. His leadership helped establish IBM's Engineering and Technology Services division in 2002, where he served as Director of Systems Solutions. He enjoys sports, music, and time with his family."
   },
   {
     name: "Daniel Borup, PhD",
     title: "CTO",
     image: danielImage,
     objectPosition: "center 20%",
-    bio: "Daniel specializes in mechanical engineering and medical technology. He is the founder of Borup Solutions, LLC, an engineering consulting firm in Rochester, MN. Previously, he spent four years in medical imaging as a Senior R&D Engineer at Philips Healthcare and a Research Fellow at Mayo Clinic’s Department of Radiology. He earned his M.S. and Ph.D. from Stanford University, where he applied medical MRI to fluid mechanics across various engineering fields. A native of Champaign, IL, he graduated with Highest Honors in Engineering Mechanics from the University of Illinois Urbana-Champaign."
+    bio: "Daniel specializes in mechanical engineering and medical technology. He is the founder of Borup Solutions, LLC, an engineering consulting firm in Rochester, MN. Previously, he spent four years in medical imaging as a Senior R&D Engineer at Philips Healthcare and a Research Fellow at Mayo Clinic's Department of Radiology. He earned his M.S. and Ph.D. from Stanford University, where he applied medical MRI to fluid mechanics across various engineering fields. A native of Champaign, IL, he graduated with Highest Honors in Engineering Mechanics from the University of Illinois Urbana-Champaign."
   },
   {
     name: "Zachary Pfizenmaier",
@@ -25,6 +25,21 @@ const executives = [
     image: zacharyImage,
     objectPosition: "top",
     bio: "Zachary oversees financial strategy and operations at Smart Labhood Solutions, ensuring strong fiscal management and sustainable growth. With a background in software development and AI, he specializes in process optimization and building AI-driven products, including the mobile nutrition tracking app Cranberry. Passionate about energy efficiency and solving the chronic disease crisis, he applies technology to drive impactful, scalable solutions."
+  }
+];
+
+const advisors = [
+  {
+    name: "Tom Von Kuster",
+    title: "Investor Relations"
+  },
+  {
+    name: "Prashanth Prabhakar",
+    title: "COO of Sweet Harvest Foods"
+  },
+  {
+    name: "Jeff Furness",
+    title: "Equity Owner"
   }
 ];
 ---
@@ -61,6 +76,18 @@ const executives = [
             </div>
           </div>
         ))}
+      </div>
+
+      <div class="mt-20">
+        <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Advisory Board</h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {advisors.map((advisor) => (
+            <div class="bg-white rounded-lg p-6 text-center shadow-md">
+              <h4 class="text-xl font-bold text-gray-900 mb-2">{advisor.name}</h4>
+              <p class="text-primary font-medium">{advisor.title}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>

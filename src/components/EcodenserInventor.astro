@@ -1,18 +1,20 @@
 ---
 import thumbnailImage from '../../public/docs/inventor-thumbnail.png';
+import profWilsonImage from '../../public/docs/prof-wilson.jpg';
+import { Image } from 'astro:assets';
 ---
 
 <section class="py-20 bg-gray-50" id="inventor">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Meet the EcoDenser Inventor</h2>
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Customer Spotlight</h2>
     
     <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="max-w-[640px] mx-auto w-full">
-          <div class="aspect-[4/3] rounded-lg overflow-hidden shadow-xl">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-[640px] mx-auto w-full h-full flex items-center">
+          <div class="w-full rounded-xl overflow-hidden shadow-xl">
             <video
               controls
-              class="w-full h-full object-contain bg-black"
+              class="w-full aspect-[4/3] object-cover bg-black hover:opacity-95 transition-opacity"
               poster={thumbnailImage.src}
             >
               <source src="/docs/Ecodenser-inventor.mp4" type="video/mp4">
@@ -21,10 +23,39 @@ import thumbnailImage from '../../public/docs/inventor-thumbnail.png';
           </div>
         </div>
 
-        <div class="space-y-4">
-          <p class="text-gray-600 text-lg leading-relaxed">
-            Meet the inventor of the EcoDenser and learn about the inspiration and technology behind this innovative solution and its positive impact on the environment.
-          </p>
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div class="p-8">
+            <div class="flex items-center gap-6 mb-6">
+              <div class="w-24 h-24 flex-shrink-0 rounded-full overflow-hidden shadow-md">
+                <Image 
+                  src={profWilsonImage}
+                  alt="Professor George Wilson"
+                  width={200}
+                  height={200}
+                  class="w-full h-full object-cover"
+                  format="webp"
+                  quality={90}
+                />
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-1">Professor George Wilson</h3>
+                <p class="text-primary font-medium">University of Kansas Chemistry Dept.</p>
+              </div>
+            </div>
+            
+            <div class="space-y-6">
+              <p class="text-gray-600 text-lg leading-relaxed">
+                Professor Wilson is one of the inventors of the original heat exchanger. His primary objectives in developing the device was to eliminate water usage and dramatically reduce the risk of flooding.
+              </p>
+              <p class="text-gray-600 text-lg leading-relaxed">
+                The University of Kansas recognized the value of this innovative solution and purchased 127 EcoDensers for their new chemistry facility.
+              </p>
+              <div class="mt-8 text-4xl font-bold text-primary text-center">
+                127
+                <div class="text-lg font-medium text-gray-600 mt-1">EcoDensers Installed</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
