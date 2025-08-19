@@ -60,83 +60,11 @@ const images = [
 </div>
 
 <script>
-  // Use different variable names to avoid conflicts with gallery
-  let productSelectedImage: { src: string; alt: string } | null = null;
-  let productModalInstance: HTMLDivElement | null = null;
-
-  // Create product modal container
-  const productModalContainer = document.createElement('div');
-  document.body.appendChild(productModalContainer);
-
-  function openProductModal(src: string, alt: string) {
-    productSelectedImage = { src, alt };
-    if (productModalInstance) {
-      productModalInstance.remove();
-    }
-    
-    // Create modal backdrop
-    const backdrop = document.createElement('div');
-    backdrop.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm';
-    backdrop.onclick = closeProductModal;
-    
-    const modalContent = document.createElement('div');
-    modalContent.className = 'relative max-w-full max-h-full p-4';
-    modalContent.onclick = (e) => e.stopPropagation();
-    
-    const closeButton = document.createElement('button');
-    closeButton.className = 'absolute top-2 right-2 z-10 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all';
-    closeButton.setAttribute('aria-label', 'Close modal');
-    closeButton.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>';
-    closeButton.onclick = closeProductModal;
-    
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = alt;
-    img.className = 'max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl';
-    
-    modalContent.appendChild(closeButton);
-    modalContent.appendChild(img);
-    backdrop.appendChild(modalContent);
-    productModalContainer.appendChild(backdrop);
-    
-    productModalInstance = backdrop;
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeProductModal() {
-    if (productModalInstance) {
-      productModalInstance.remove();
-      productModalInstance = null;
-    }
-    document.body.style.overflow = 'unset';
-  }
-
-  // Add click handlers for product images
   document.addEventListener('DOMContentLoaded', () => {
-    // Small delay to ensure DOM is fully loaded
-    setTimeout(() => {
-      const productImageCards = document.querySelectorAll('.product-image-card');
-      console.log('Found product image cards:', productImageCards.length); // Debug log
-      productImageCards.forEach(card => {
-        if (card instanceof HTMLElement) {
-          card.addEventListener('click', () => {
-            console.log('Product card clicked'); // Debug log
-            const src = card.dataset.imageSrc;
-            const alt = card.dataset.imageAlt;
-            console.log('Opening modal with:', src, alt); // Debug log
-            if (src && alt) {
-              openProductModal(src, alt);
-            }
-          });
-        }
-      });
-    }, 100);
-  });
-
-  // ESC key handler for product modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && productModalInstance) {
-      closeProductModal();
-    }
+    import('../scripts/shared-modal.ts').then(() => {
+      if ((window as any).sharedImageModal) {
+        (window as any).sharedImageModal.attachToElements('.product-image-card');
+      }
+    });
   });
 </script>
