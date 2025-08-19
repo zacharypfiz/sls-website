@@ -25,31 +25,34 @@ export default function ProductsWithModal({ images }: ProductsWithModalProps) {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {images.map((image, index) => (
             <div key={index} className="group">
-              <div className="relative bg-white rounded-2xl shadow-xl p-6">
-                <div className="text-center mb-6">
-                  <h4 className="text-xl font-bold text-black tracking-wide">
-                    {image.title.toUpperCase()}
-                  </h4>
+              <div 
+                className="relative overflow-hidden rounded-2xl shadow-2xl cursor-pointer bg-gray-100"
+                onClick={() => setSelectedImage(image)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full aspect-[4/3] object-cover transition-all duration-500 hover:scale-110"
+                />
+                
+                <div className="absolute top-4 left-4">
+                  <div className="inline-flex items-center space-x-2 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <span className="text-sm font-semibold text-gray-800 tracking-wide">
+                      {image.title}
+                    </span>
+                  </div>
                 </div>
                 
-                <div 
-                  className="relative overflow-hidden rounded-xl shadow-lg cursor-pointer"
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full aspect-square object-cover transition-all duration-300 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
+                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
                 </div>
               </div>
             </div>
