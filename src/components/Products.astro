@@ -1,13 +1,6 @@
 ---
 import ProductCard from './ui/ProductCard.astro';
-import ProductsWithModal from './ProductsWithModal';
-import mottBack from '../../public/docs/Mott-Back.jpg';
-import mottShippingFront from '../../public/docs/Mott-Shipping-Front.jpg';
-
-const productImages = [
-  { src: mottShippingFront.src, alt: 'EcoDenser Front View', title: 'Front' },
-  { src: mottBack.src, alt: 'EcoDenser Back View', title: 'Back' },
-];
+import ProductsWithModalAstro from './ProductsWithModalAstro.astro';
 ---
 
 <section class="py-20 bg-gray-50" id="products">
@@ -38,6 +31,6 @@ const productImages = [
       />
     </div>
 
-    <ProductsWithModal images={productImages} client:load />
+    <ProductsWithModalAstro />
   </div>
 </section>

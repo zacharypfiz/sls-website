@@ -53,6 +53,9 @@ const universities: University[] = [
               alt={uni.name}
               width={uni.width}
               height={Math.floor(uni.width * 0.6)}
+              loading="eager"
+              format="webp"
+              quality={85}
             />
           )}
         </div>
